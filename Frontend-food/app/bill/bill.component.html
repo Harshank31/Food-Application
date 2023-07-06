@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<p class="text-start fs-6 fw-bolder text-primary">User Name: {{ CurrentUser.CustName }}</p>
+<p class="text-start fs-6 fw-bolder text-primary">Delivery Address: {{ CurrentUser.CustAddress }}</p>
+<p class="text-start fs-6 fw-bolder text-primary">Phone: {{ CurrentUser.CustPhone }}</p>
+<!-- <button class="m-1 btn btn-light btn-outline-dark " (click)="proceedBill()" Button>Buy</button> -->
+<!-- <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Bill Number</th>
+            <th>User ID</th>
+            <th>Food Code</th>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of OrderList">
+            <td>{{ item.OrderNo }}</td>
+            <td>{{ item.Custid }}</td>
+            <td>{{ item.FoodCode }}</td>
+            <td>{{ item.FoodName }}</td>
+            <td>{{ item.Quantity }}</td>
+            <td>{{ item.Price }}</td>
+        </tr>
+    </tbody>
+</table> -->
+<div class="container" *ngFor="let bill of OrderList">
+  <div class="card mt-5 border-5 pt-2 active pb-0 px-3">
+    <div class="card-body ">
+      <div class="row">
+        <div class="col-12 ">
+          <h4 class="card-title ">
+            <b>Order :{{bill[0].OrderNo}}</b>
+          </h4>
+          <h6 class="card-title ">
+            <b>Date : {{getFormattedDate()}}</b>
+          </h6>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer bg-white px-0 ">
+      <div class="col-lg-4 mt-2">
+        <div *ngFor="let items of bill" class="row d-flex justify-content-between px-4">
+          <div class="row d-flex justify-content-between px-4">
+            <p class="mb-1 text-left">{{items.FoodName}}</p>
+            <p class="mb-1 text-left">{{items.Quantity}}</p>
+            <h6 class="mb-1 text-right">
+              {{items.Price}}</h6>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-between px-4">
+        </div>
+        <hr>
+        <div class="row d-flex justify-content-between px-4" id="tax">
+          <p class="mb-1 text-left">Total</p>
+          <h6 class="mb-1 text-right" id="totalAmt">
+            {{getTotal(bill)}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
